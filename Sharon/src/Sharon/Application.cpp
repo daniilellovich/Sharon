@@ -11,7 +11,7 @@ namespace Sharon
 
     Application::Application()
     {
-
+        m_Window = std::unique_ptr<Window>(Window::Create());
     }
 
     Application::~Application()
@@ -21,15 +21,9 @@ namespace Sharon
 
     void Application::Run()
     {
-        WindowResizedEvent e(1222, 44);
-        SHARON_CORE_TRACE(e);
-        MouseMovedEvent mve(234, 234);
-        SHARON_CORE_TRACE(mve);
-        KeyPressedEvent k(23, 4);
-        SHARON_CORE_TRACE(k);
-        MouseButtonPressedEvent rr(1);
-        SHARON_CORE_TRACE(rr);
-
-        while (true);
+        while (m_Running)
+        {
+            m_Window->OnUpdate();
+        }
     }
 }

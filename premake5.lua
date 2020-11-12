@@ -10,6 +10,11 @@ workspace "Sharon"
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Sharon/vendor/GLFW/include"
+
+include "Sharon/vendor/GLFW" -- file premake5.lua from GLFW folder
+
 project "Sharon"
 	location "Sharon"
 	kind "SharedLib"
@@ -24,13 +29,20 @@ project "Sharon"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
 	}
 
 	includedirs
 	{
-		"Sharon/src"
+		"Sharon/src",
 		"%{prj.name}/vendor/spdlog/include",	
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib",
 	}
 
 	filter "system:windows"
@@ -81,7 +93,7 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Sharon/src"
+		"Sharon/src",
 		"Sharon/vendor/spdlog/include",
 	}
 

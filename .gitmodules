@@ -1,3 +1,6 @@
 [submodule "Sharon/vendor/spdlog"]
 	path = Sharon/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Sharon/vendor/GLFW"]
+	path = Sharon/vendor/GLFW
+	url = https://github.com/glfw/glfw
