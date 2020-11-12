@@ -29,8 +29,8 @@ project "Sharon"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include",	
 		"Sharon/src"
+		"%{prj.name}/vendor/spdlog/include",	
 	}
 
 	filter "system:windows"
@@ -81,8 +81,8 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Sharon/vendor/spdlog/include",
 		"Sharon/src"
+		"Sharon/vendor/spdlog/include",
 	}
 
 	links

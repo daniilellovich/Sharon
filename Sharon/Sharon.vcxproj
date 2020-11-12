@@ -143,6 +143,10 @@
     <ClInclude Include="src\Sharon\Application.h" />
     <ClInclude Include="src\Sharon\Core.h" />
     <ClInclude Include="src\Sharon\EntryPoint.h" />
+    <ClInclude Include="src\Sharon\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Sharon\Events\Event.h" />
+    <ClInclude Include="src\Sharon\Events\KeyEvent.h" />
+    <ClInclude Include="src\Sharon\Events\MouseEvent.h" />
     <ClInclude Include="src\Sharon\Log.h" />
     <ClInclude Include="src\sharon_pch.h" />
   </ItemGroup>
