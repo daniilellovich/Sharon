@@ -1,5 +1,4 @@
 #pragma once
-#include "sharon_pch.h"
 #include "Sharon/Window.h"
 #include <GLFW/glfw3.h>
 

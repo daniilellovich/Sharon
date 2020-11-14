@@ -1,22 +1,27 @@
 #include "sharon_pch.h"
 #include "Application.h"
 
-//todo delete
-#include "Events/ApplicationEvent.h"
-#include "Events/KeyEvent.h"
-#include "Events/MouseEvent.h"
-
 namespace Sharon
 {
+#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
     Application::Application()
     {
         m_Window = std::unique_ptr<Window>(Window::Create());
+        m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
     }
 
     Application::~Application()
     {
 
+    }
+
+    void Application::OnEvent(Event& e)
+    {
+        EventDispatcher dispatcher(e);
+        dispatcher.Dispatch<WindowClosedEvent>(BIND_EVENT_FN(OnWindowClose)); // lambda?
+
+        SHARON_CORE_TRACE("{0}", e);
     }
 
     void Application::Run()
@@ -25,5 +30,11 @@ namespace Sharon
         {
             m_Window->OnUpdate();
         }
+    }
+
+    bool Application::OnWindowClose(WindowClosedEvent& e)
+    {
+        m_Running = false;
+        return true;
     }
 }

@@ -10,6 +10,10 @@
     #error Sharon supports only Windows(
 #endif
 
+#ifdef SHARON_DEBUG
+    #define SHARON_ENABLE_ASSERTS
+#endif
+
 #ifdef SHARON_ENABLE_ASSERTS
 #define SHARON_ASSERT(x, ...) { if(!(x)) { SHARON_ERROR("Assertion failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define SHARON_CORE_ASSERT(x, ...) { if(!(x)) { SHARON_ERROR("Assertion failed: {0}", __VA_ARGS__); __debugbreak(); } }

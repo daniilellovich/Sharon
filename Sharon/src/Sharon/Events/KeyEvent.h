@@ -3,8 +3,7 @@
 
 namespace Sharon
 {
-
-    class KeyEvent : public Event
+    class SHARON_API KeyEvent : public Event
     {
     public:
         int GetKeyCode() const { return m_KeyCode; }
@@ -12,22 +11,18 @@ namespace Sharon
         EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
     protected:
         KeyEvent(int keycode)
-            : m_KeyCode(keycode)
-        {
-        }
+            : m_KeyCode(keycode) { }
 
         int m_KeyCode;
     };
 
 
-    class KeyPressedEvent : public KeyEvent
+    class SHARON_API KeyPressedEvent : public KeyEvent
     {
     public:
         KeyPressedEvent(int keycode, int repeatCount)
-            : KeyEvent(keycode), m_RepeatCount(repeatCount)
-        {
-        }
-
+            : KeyEvent(keycode), m_RepeatCount(repeatCount) { }
+        //todo fix repeat counter
         int GetRepearCount() const { return m_RepeatCount; }
 
         std::string ToString() const override
@@ -44,13 +39,11 @@ namespace Sharon
     };
 
 
-    class KeyReleasedEvent : public KeyEvent
+    class SHARON_API KeyReleasedEvent : public KeyEvent
     {
     public:
         KeyReleasedEvent(int keycode)
-            : KeyEvent(keycode)
-        {
-        }
+            : KeyEvent(keycode) { }
 
         std::string ToString() const override
         {

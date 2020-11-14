@@ -1,5 +1,4 @@
 #pragma once
-
 #include "sharon_pch.h"
 
 #include "Sharon/Core.h"

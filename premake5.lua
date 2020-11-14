@@ -15,10 +15,13 @@ IncludeDir["GLFW"] = "Sharon/vendor/GLFW/include"
 
 include "Sharon/vendor/GLFW" -- file premake5.lua from GLFW folder
 
+--startproject "Sandbox"
+
 project "Sharon"
 	location "Sharon"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir("bin/" .. outputDir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -58,19 +61,22 @@ project "Sharon"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputDir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputDir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "SHARON_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "SHARON_Release"
+		defines "SHARON_RELEASE"
+		runtime "Release"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "SHARON_DIST"
+		runtime "Release"
 		symbols "On"
 
 	filter {"system:windows", "configurations:Release"}
@@ -81,6 +87,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir("bin/" .. outputDir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -114,14 +121,17 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "SHARON_DEBUG"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "SHARON_RELEASE"
+		runtime "Release"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "SHARON_DIST"
+		runtime "Release"
 		symbols "On"
 
 	filter {"system:windows", "configurations:Release"}

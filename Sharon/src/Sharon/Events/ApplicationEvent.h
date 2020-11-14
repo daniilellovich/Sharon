@@ -3,7 +3,7 @@
 
 namespace Sharon
 {
-    class WindowClosedEvent : public Event
+    class SHARON_API WindowClosedEvent : public Event
     {
     public:
         WindowClosedEvent() { }
@@ -13,7 +13,7 @@ namespace Sharon
     };
 
 
-    class WindowFocusedEvent : public Event
+    class SHARON_API WindowFocusedEvent : public Event
     {
     public:
         WindowFocusedEvent() {}
@@ -23,7 +23,7 @@ namespace Sharon
     };
 
 
-    class WindowLostFocusEvent : public Event
+    class SHARON_API WindowLostFocusEvent : public Event
     {
     public:
         WindowLostFocusEvent() {}
@@ -33,13 +33,11 @@ namespace Sharon
     };
 
 
-    class WindowResizedEvent : public Event
+    class SHARON_API WindowResizedEvent : public Event
     {
     public:
         WindowResizedEvent(unsigned int width, unsigned int height)
-            : m_Width(width), m_Height(height)
-        {
-        }
+            : m_Width(width), m_Height(height) { }
 
         unsigned int GetWidth() const { return m_Width; }
         unsigned int GetHeigth() const { return m_Height; }
@@ -59,33 +57,7 @@ namespace Sharon
     };
 
 
-    class WindowMovedEvent : public Event
-    {
-    public:
-        WindowMovedEvent(unsigned int xOffset, unsigned int yOffset)
-            : m_XOffset(xOffset), m_YOffset(yOffset)
-        {
-        }
-
-        unsigned int GetXOffset() const { return m_XOffset; }
-        unsigned int GetYOffset() const { return m_YOffset; }
-
-        std::string ToString() const override
-        {
-            std::stringstream ss;
-            ss << "WindowMovedEvent: " << m_XOffset << ", " << m_YOffset;
-            return ss.str();
-        }
-
-        EVENT_CLASS_TYPE(WindowMoved)
-        EVENT_CLASS_CATEGORY(EventCategoryApplication)
-
-    private:
-        unsigned int m_XOffset, m_YOffset;
-    };
-
-
-    class AppTickEvent : public Event
+    class SHARON_API AppTickEvent : public Event
     {
     public:
         AppTickEvent() {}
@@ -95,7 +67,7 @@ namespace Sharon
     };
 
 
-    class AppUpdateEvent : public Event
+    class SHARON_API AppUpdateEvent : public Event
     {
     public:
         AppUpdateEvent() {}
@@ -105,7 +77,7 @@ namespace Sharon
     };
 
 
-    class AppRenderEvent : public Event
+    class SHARON_API AppRenderEvent : public Event
     {
     public:
         AppRenderEvent() {}
