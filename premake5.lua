@@ -8,14 +8,21 @@ workspace "Sharon"
 		"Dist"
 	}
 
+	startproject "Sandbox"
+
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Sharon/vendor/GLFW/include"
+IncludeDir["Glad"] = "Sharon/vendor/Glad/include"
+IncludeDir["ImGui"] = "Sharon/vendor/imgui"
 
-include "Sharon/vendor/GLFW" -- file premake5.lua from GLFW folder
+group "Dependencies"
+	include "Sharon/vendor/GLFW"  -- pastes file premake5.lua from GLFW folder
+	include "Sharon/vendor/Glad"
+	include "Sharon/vendor/imgui"
 
---startproject "Sandbox"
+group ""
 
 project "Sharon"
 	location "Sharon"
@@ -37,26 +44,30 @@ project "Sharon"
 
 	includedirs
 	{
-		"Sharon/src",
+		"Sharon/src", 
 		"%{prj.name}/vendor/spdlog/include",	
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib",
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
 			"SHARON_PLATFORM_WINDOWS",
-			"SHARON_BUILD_DLL"
+			"SHARON_BUILD_DLL",
+			"GLFW_INCLUDE_NONE",
 		}
 
 		postbuildcommands
@@ -79,15 +90,12 @@ project "Sharon"
 		runtime "Release"
 		symbols "On"
 
-	filter {"system:windows", "configurations:Release"}
-		buildoptions "/MT"
-
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "Off"
+	staticruntime "off"
 
 	targetdir("bin/" .. outputDir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -111,7 +119,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -133,6 +140,3 @@ project "Sandbox"
 		defines "SHARON_DIST"
 		runtime "Release"
 		symbols "On"
-
-	filter {"system:windows", "configurations:Release"}
-		buildoptions "/MT"

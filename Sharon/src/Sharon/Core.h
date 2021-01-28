@@ -7,7 +7,7 @@
         #define SHARON_API __declspec(dllimport)
     #endif
 #else
-    #error Sharon supports only Windows(
+    #error Sharon supports only Windows :<
 #endif
 
 #ifdef SHARON_DEBUG
@@ -23,3 +23,5 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+#define SHARON_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

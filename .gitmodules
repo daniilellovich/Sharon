@@ -4,3 +4,6 @@
 [submodule "Sharon/vendor/GLFW"]
 	path = Sharon/vendor/GLFW
 	url = https://github.com/glfw/glfw
+[submodule "Sharon/vendor/imgui"]
+	path = Sharon/vendor/imgui
+	url = https://github.com/ocornut/imgui
