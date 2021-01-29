@@ -1,9 +1,9 @@
-[submodule "Sharon/vendor/spdlog"]
-	path = Sharon/vendor/spdlog
-	url = https://github.com/gabime/spdlog
 [submodule "Sharon/vendor/GLFW"]
 	path = Sharon/vendor/GLFW
-	url = https://github.com/glfw/glfw
+	url = https://github.com/ellovich/glfw
 [submodule "Sharon/vendor/imgui"]
 	path = Sharon/vendor/imgui
-	url = https://github.com/ocornut/imgui
+	url = https://github.com/ellovich/imgui
+[submodule "Sharon/vendor/spdlog"]
+	path = Sharon/vendor/spdlog
+	url = https://github.com/ellovich/spdlog
