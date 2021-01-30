@@ -7,3 +7,6 @@
 [submodule "Sharon/vendor/spdlog"]
 	path = Sharon/vendor/spdlog
 	url = https://github.com/ellovich/spdlog
+[submodule "Sharon/vendor/glm"]
+	path = Sharon/vendor/glm
+	url = https://github.com/g-truc/glm

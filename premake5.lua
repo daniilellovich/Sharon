@@ -1,5 +1,6 @@
 workspace "Sharon"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -8,7 +9,6 @@ workspace "Sharon"
 		"Dist"
 	}
 
-	startproject "Sandbox"
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -16,9 +16,10 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Sharon/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sharon/vendor/Glad/include"
 IncludeDir["ImGui"] = "Sharon/vendor/imgui"
+IncludeDir["glm"] = "Sharon/vendor/glm"
 
 group "Dependencies"
-	include "Sharon/vendor/GLFW"  -- pastes file premake5.lua from GLFW folder
+	include "Sharon/vendor/GLFW"
 	include "Sharon/vendor/Glad"
 	include "Sharon/vendor/imgui"
 
@@ -26,9 +27,10 @@ group ""
 
 project "Sharon"
 	location "Sharon"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir("bin/" .. outputDir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -40,6 +42,13 @@ project "Sharon"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -48,7 +57,8 @@ project "Sharon"
 		"%{prj.name}/vendor/spdlog/include",	
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -60,42 +70,42 @@ project "Sharon"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
 		{
 			"SHARON_PLATFORM_WINDOWS",
 			"SHARON_BUILD_DLL",
-			"GLFW_INCLUDE_NONE",
+			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputDir .. "/Sandbox/\"")
-		}
+		--postbuildcommands
+		--{
+		--	("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputDir .. "/Sandbox/\"")
+		--}
 
 	filter "configurations:Debug"
 		defines "SHARON_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SHARON_RELEASE"
 		runtime "Release"
-		symbols "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SHARON_DIST"
 		runtime "Release"
-		symbols "On"
+		optimize "on"
 
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir("bin/" .. outputDir .. "/%{prj.name}")
 	objdir("bin-int/" .. outputDir .. "/%{prj.name}")
@@ -110,6 +120,8 @@ project "Sandbox"
 	{
 		"Sharon/src",
 		"Sharon/vendor/spdlog/include",
+		"Sharon/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -118,25 +130,24 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
 		{
-			"SHARON_PLATFORM_WINDOWS",
+			"SHARON_PLATFORM_WINDOWS"
 		}
 
 	filter "configurations:Debug"
 		defines "SHARON_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "SHARON_RELEASE"
 		runtime "Release"
-		symbols "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "SHARON_DIST"
 		runtime "Release"
-		symbols "On"
+		optimize "on"

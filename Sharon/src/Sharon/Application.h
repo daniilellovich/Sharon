@@ -1,8 +1,11 @@
 #pragma once
 #include "Core.h"
+
 #include "Window.h"
-#include "Events/ApplicationEvent.h"
 #include "LayerStack.h"
+#include "Events/ApplicationEvent.h"
+
+#include "Sharon/ImGui/ImGuiLayer.h"
 
 namespace Sharon
 {
@@ -13,6 +16,7 @@ namespace Sharon
         virtual ~Application();
 
         void Run();
+
         void OnEvent(Event& e);
 
         void PushLayer(Layer* layer);
@@ -26,6 +30,7 @@ namespace Sharon
         bool OnWindowClose(WindowClosedEvent& e);
 
         std::unique_ptr<Window> m_Window;
+        ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
 

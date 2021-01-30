@@ -23,7 +23,6 @@ public:
     Sandbox()
     {
         PushLayer(new ExampleLayer());
-        PushOverlay(new Sharon::ImGuiLayer());
     }
 
     ~Sandbox()
