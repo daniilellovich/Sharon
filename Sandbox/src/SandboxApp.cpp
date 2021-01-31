@@ -8,7 +8,7 @@ public:
 
     void OnUpdate() override
     {
-        SHARON_INFO("ExmpleLayer::Update");
+   //     SHARON_INFO("ExmpleLayer::Update");
     }
 
     void OnEvent(Sharon::Event& event) override

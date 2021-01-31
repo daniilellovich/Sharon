@@ -1,6 +1,7 @@
 #pragma once
 #include "Sharon/Window.h"
-struct GLFWwindow;
+#include "Renderer/GraphicsContext.h"
+#include "GLFW/glfw3.h"
 
 namespace Sharon
 {
@@ -26,6 +27,7 @@ namespace Sharon
         virtual void Shutdown();
 
         GLFWwindow* m_Window;
+        GraphicsContext* m_Context;
 
         struct WindowData
         {
