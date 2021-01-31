@@ -3,8 +3,8 @@
 class ExampleLayer : public Sharon::Layer
 {
 public:
-    ExampleLayer()
-        : Layer("Example") { }
+    ExampleLayer() 
+        : Layer("Example layer1") { }
 
     void OnUpdate() override
     {
@@ -13,7 +13,7 @@ public:
 
     void OnEvent(Sharon::Event& event) override
     {
-        SHARON_TRACE("{0}", event);
+   //     SHARON_TRACE("{0}: {1}", this->GetName(), event);
     }
 };
 

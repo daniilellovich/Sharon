@@ -39,7 +39,6 @@ namespace Sharon
 
         SHARON_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
-
         if (!s_GLFWInitialized)
         {
             int success = glfwInit();
@@ -52,8 +51,6 @@ namespace Sharon
     
         m_Context = new OpenGLContext(m_Window);
         m_Context->Init();
-        // ^
-   
            
         glfwSetWindowUserPointer(m_Window, &m_Data);
         SetVSync(true);
@@ -169,11 +166,11 @@ namespace Sharon
 
     void WindowsWindow::SetVSync(bool enabled)
     {
-        //glfwSwapInterval(enabled);
-        if (enabled)
-            glfwSwapInterval(1);
-        else
-            glfwSwapInterval(0);
+        glfwSwapInterval(enabled);
+        //if (enabled)
+        //    glfwSwapInterval(1);
+        //else
+        //    glfwSwapInterval(0);
 
         m_Data.VSync = enabled;
     }

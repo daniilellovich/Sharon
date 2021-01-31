@@ -1,9 +1,7 @@
 #pragma once
-
+#include "sharon_pch.h"
 #include "Sharon/Core.h"
 #include "Layer.h"
-
-#include <vector>
 
 namespace Sharon
 {
@@ -14,8 +12,9 @@ namespace Sharon
         ~LayerStack();
 
         void PushLayer(Layer* layer);
-        void PushOverlay(Layer* overlay);
         void PopLayer(Layer* layer);
+
+        void PushOverlay(Layer* overlay);
         void PopOverlay(Layer* overlay);
 
         std::vector<Layer*>::iterator begin() { return m_Layers.begin(); }
