@@ -2,7 +2,7 @@
 #include "Application.h"
 
 #include "Input.h"
-#include <glad/glad.h> // temp
+#include "Renderer/Renderer.h"
 
 namespace Sharon
 {
@@ -20,7 +20,6 @@ namespace Sharon
 
         m_ImGuiLayer = new ImGuiLayer();
         PushOverlay(m_ImGuiLayer);
-
 
         // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
@@ -107,17 +106,18 @@ namespace Sharon
 
     void Application::Run()
     {
-        while (m_Running) 
+        while (m_Running)
         {
-            glClearColor(0.1f, 0.1f, 0.1f, 1);
-            glClear(GL_COLOR_BUFFER_BIT);
+            RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+            RenderCommand::Clear();
 
-            ///
+            Renderer::BeginScene();
+
             m_Shader->Bind();
-            m_SqVA->Bind();
-            glDrawElements(GL_TRIANGLES, m_SqVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
-            ///
+            Renderer::Sumbit(m_SqVA);
 
+            Renderer::EndScene();
+            //////////////////////////////////
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
 

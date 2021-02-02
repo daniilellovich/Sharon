@@ -1,17 +1,16 @@
 #pragma once
+#include "RenderCommand.h"
 
 namespace Sharon
 {
-    enum class RendererAPI
-    {
-        None, OpenGL, Direct3D, Vulcan, Metal,
-    };
-
     class Renderer
     {
     public:
-        static RendererAPI GetAPI() { return s_RendererAPI; }
-    private:
-        static RendererAPI s_RendererAPI;
+        static void BeginScene();
+        static void EndScene();
+
+        static void Sumbit(const std::shared_ptr<VertexArray>& vertexArray);
+
+        static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
     };
 }
