@@ -8,6 +8,7 @@
 #include "Sharon/ImGui/ImGuiLayer.h"
 
 #include "Renderer/Shader.h" // temp
+#include "Renderer/VertexArray.h"
 #include "Renderer/Buffer.h"
 
 namespace Sharon
@@ -38,11 +39,8 @@ namespace Sharon
         LayerStack m_LayerStack;
 
         // temp
-        std::unique_ptr<Shader> m_Shader;
-        std::unique_ptr<VertexBuffer> m_VertexBuffer;
-        std::unique_ptr<IndexBuffer> m_IndexBuffer;
-        uint32_t m_VertexArray;
-
+        std::shared_ptr<Shader> m_Shader;
+        std::shared_ptr<VertexArray> m_SqVA;
     private:
         static Application* s_Instance;
     };

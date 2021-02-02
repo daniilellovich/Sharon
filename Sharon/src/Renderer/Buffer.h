@@ -4,8 +4,11 @@ namespace Sharon
 {
     enum class ShaderDataType
     {
-        None, Float, Float2, Float3, Float4,
-        Mat3, Mat4, Int, Int2, Int3, Int4, Bool,
+        None, 
+        Float, Float2, Float3, Float4,
+        Mat3, Mat4, 
+        Int, Int2, Int3, Int4,
+        Bool,
     };
 
     static uint32_t ShaderDataTypeSize(ShaderDataType type)
@@ -25,7 +28,7 @@ namespace Sharon
         case ShaderDataType::Bool:      return sizeof(bool);
         }
 
-        SHARON_CORE_ASSERT(false, "Unknown ShaderDataTye!");
+        SHARON_CORE_ASSERT(false, "Unknown ShaderDataType!");
         return 0;
     }
 
@@ -61,7 +64,7 @@ namespace Sharon
                 case ShaderDataType::Bool:      return 1;
             }
 
-            SHARON_CORE_ASSERT(false, "Unknown ShaderDataTye!");
+            SHARON_CORE_ASSERT(false, "Unknown ShaderDataType!");
             return 0;
         }       
     };

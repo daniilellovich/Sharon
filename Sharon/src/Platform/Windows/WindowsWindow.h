@@ -11,14 +11,14 @@ namespace Sharon
         WindowsWindow(const WindowProps& props);
         virtual ~WindowsWindow();
 
-        void OnUpdate() override;
+        virtual void OnUpdate() override;
 
-        unsigned int GetWidth() const override { return m_Data.Width; }
-        unsigned int GetHeight() const override { return m_Data.Height; }
+        virtual unsigned int GetWidth() const override { return m_Data.Width; }
+        virtual unsigned int GetHeight() const override { return m_Data.Height; }
 
-        void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
-        void SetVSync(bool enabled) override;
-        bool IsVSync() const override;
+        virtual void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
+        virtual void SetVSync(bool enabled) override;
+        virtual bool IsVSync() const override;
 
         virtual void* GetNativeWindow() const {  return m_Window; }
 
