@@ -1,6 +1,7 @@
 #pragma once
-#include "Sharon/Core.h"
+#include "Sharon/Core/Base.h"
 #include <string>
+#include "glm/glm.hpp"
 
 namespace Sharon
 {
@@ -13,6 +14,8 @@ namespace Sharon
 		void Bind() const;
 		void Unbind() const;
 
+		void UploadUniformMat4(const std::string& name, const glm::mat4& matrix);
+		void UploadUniformFloat4(const std::string& name, const glm::vec4& values);
 		//uint32_t GetRendererID() { return m_RendererID; }
 
 	private:

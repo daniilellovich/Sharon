@@ -1,6 +1,6 @@
 #pragma once
 #include "sharon_pch.h"
-#include "Sharon/Core.h"
+#include "Sharon/Core/Base.h"
 #include "Layer.h"
 
 namespace Sharon

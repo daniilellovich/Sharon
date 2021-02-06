@@ -1,7 +1,7 @@
 #pragma once
 #include "sharon_pch.h"
 
-#include "Sharon/Core.h"
+#include "Sharon/Core/Base.h"
 #include "Sharon/Events/Event.h"
 
 namespace Sharon
@@ -12,8 +12,8 @@ namespace Sharon
         unsigned int Width, Height;
 
         WindowProps(const std::string& title = "Sharon",
-                    unsigned int width = 1200,
-                    unsigned int height = 800)
+                    unsigned int width = 1280,
+                    unsigned int height = 720)
             : Title(title), Width(width), Height(height) { }
     };
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sharon/Input.h"
+#include "Sharon/Input/Input.h"
 
 namespace Sharon
 {

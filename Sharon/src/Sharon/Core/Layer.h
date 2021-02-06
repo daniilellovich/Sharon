@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Sharon/Core.h"
+#include "Sharon/Core/Base.h"
+#include "Sharon/Core/TimeStep.h"
 #include "Sharon/Events/Event.h"
 
 namespace Sharon
@@ -13,7 +14,7 @@ namespace Sharon
 
         virtual void OnAttach() {}
         virtual void OnDetach() {}
-        virtual void OnUpdate() {}
+        virtual void OnUpdate(TimeStep ts) {}
         virtual void OnImGuiRender() {}
         virtual void OnEvent(Event& event) {}
 

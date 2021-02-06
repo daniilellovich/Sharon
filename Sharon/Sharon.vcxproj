@@ -140,32 +140,36 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Sharon\Core\TimeStep.h" />
+    <ClInclude Include="src\Sharon\Input\KeyCodes.h" />
+    <ClInclude Include="src\Sharon\Input\MouseButtonKeyCodes.h" />
+    <ClInclude Include="src\Sharon\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Sharon\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Sharon\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
-    <ClInclude Include="src\Renderer\Buffer.h" />
-    <ClInclude Include="src\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Renderer\Renderer.h" />
-    <ClInclude Include="src\Renderer\Shader.h" />
+    <ClInclude Include="src\Sharon\Renderer\Buffer.h" />
+    <ClInclude Include="src\Sharon\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Sharon\Renderer\Renderer.h" />
+    <ClInclude Include="src\Sharon\Renderer\Shader.h" />
     <ClInclude Include="src\Sharon.h" />
-    <ClInclude Include="src\Sharon\Application.h" />
-    <ClInclude Include="src\Sharon\Core.h" />
-    <ClInclude Include="src\Sharon\EntryPoint.h" />
+    <ClInclude Include="src\Sharon\Core\Application.h" />
+    <ClInclude Include="src\Sharon\Core\Base.h" />
+    <ClInclude Include="src\Sharon\Core\EntryPoint.h" />
     <ClInclude Include="src\Sharon\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Sharon\Events\Event.h" />
     <ClInclude Include="src\Sharon\Events\KeyEvent.h" />
     <ClInclude Include="src\Sharon\Events\MouseEvent.h" />
     <ClInclude Include="src\Sharon\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Sharon\Input.h" />
-    <ClInclude Include="src\Sharon\Layer.h" />
-    <ClInclude Include="src\Sharon\LayerStack.h" />
-    <ClInclude Include="src\Sharon\Log.h" />
-    <ClInclude Include="src\Sharon\Window.h" />
+    <ClInclude Include="src\Sharon\Input\Input.h" />
+    <ClInclude Include="src\Sharon\Core\Layer.h" />
+    <ClInclude Include="src\Sharon\Core\LayerStack.h" />
+    <ClInclude Include="src\Sharon\Core\Log.h" />
+    <ClInclude Include="src\Sharon\Core\Window.h" />
     <ClInclude Include="src\sharon_pch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
@@ -580,30 +584,31 @@
     <ClInclude Include="vendor\glm\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
-    <ClInclude Include="src\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Sharon\Renderer\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Sharon\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Sharon\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Sharon\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
-    <ClCompile Include="src\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Sharon\Application.cpp" />
+    <ClCompile Include="src\Sharon\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Sharon\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Sharon\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Sharon\Core\Application.cpp" />
     <ClCompile Include="src\Sharon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Sharon\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Sharon\Layer.cpp" />
-    <ClCompile Include="src\Sharon\LayerStack.cpp" />
-    <ClCompile Include="src\Sharon\Log.cpp" />
+    <ClCompile Include="src\Sharon\Core\Layer.cpp" />
+    <ClCompile Include="src\Sharon\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Sharon\Core\Log.cpp" />
     <ClCompile Include="src\sharon_pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Sharon\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Sharon/Log.h"
+#include "Sharon/Core/Log.h"
 
 #ifdef SHARON_PLATFORM_WINDOWS
     #include <Windows.h>

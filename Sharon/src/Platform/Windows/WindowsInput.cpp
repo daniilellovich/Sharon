@@ -2,7 +2,7 @@
 #include "WindowsInput.h"
 
 #include <GLFW/glfw3.h>
-#include "Sharon/Application.h"
+#include "Sharon/Core/Application.h"
 
 namespace Sharon
 {

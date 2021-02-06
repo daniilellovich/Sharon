@@ -1,6 +1,6 @@
 #pragma once
-#include "Sharon/Window.h"
-#include "Renderer/GraphicsContext.h"
+#include "Sharon/Core/Window.h"
+#include "Sharon/Renderer/GraphicsContext.h"
 #include "GLFW/glfw3.h"
 
 namespace Sharon

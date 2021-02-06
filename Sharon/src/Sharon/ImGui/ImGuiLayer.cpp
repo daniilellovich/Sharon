@@ -5,7 +5,7 @@
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
 
-#include "Sharon/Application.h"
+#include "Sharon/Core/Application.h"
 
 // temp
 #include <GLFW/glfw3.h>
